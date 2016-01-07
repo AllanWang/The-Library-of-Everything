@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.pitchedapps.material.glass.free.activities.MainActivity">
+    <item
+        android:id="@+id/share"
+        android:orderInCategory="100"
+        android:title="@string/share"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/rate_mg"
+        android:orderInCategory="200"
+        android:title="@string/sendemail"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/sendemail"
+        android:orderInCategory="200"
+        android:title="@string/sendemail"
+        app:showAsAction="never" />
+</menu>

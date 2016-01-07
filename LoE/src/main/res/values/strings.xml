@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">The Library of Everything</string>
+    <string name="dev">Pitched Apps</string>
+
+    <!--contact info-->
+    <string name="send_title">Send via</string>
+    <string name="email_id">pitchedapps@gmail.com</string>
+    <string name="email_subject">Change the subject!</string>
+
+    <!-- Sharing theme -->
+    <string name="share_title">Share via</string>
+    <string name="share_one">"Check out this awesome app by "</string>
+    <string name="share_two">.\n"Get it now at "</string>
 </resources>
