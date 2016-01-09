@@ -3,4 +3,5 @@
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
     android:minHeight="?actionBarSize"
+    android:background="@color/colorPrimary"
     android:transitionName="actionBar"/>

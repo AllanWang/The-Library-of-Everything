@@ -10,11 +10,11 @@
     <item
         android:id="@+id/rate_mg"
         android:orderInCategory="200"
-        android:title="@string/sendemail"
+        android:title="@string/rate_mg"
         app:showAsAction="never" />
     <item
         android:id="@+id/sendemail"
-        android:orderInCategory="200"
+        android:orderInCategory="300"
         android:title="@string/sendemail"
         app:showAsAction="never" />
 </menu>
