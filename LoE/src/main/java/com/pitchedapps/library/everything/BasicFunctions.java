@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.widget.Toast;
 
 /**
  * Created by 7681 on 2016-01-07.
@@ -17,7 +18,15 @@ public class BasicFunctions {
     public BasicFunctions(Context c) {
         this.c = c;
     }
-    public void contact() {
+
+    /// email will open an email app and allow the user to send their requests with their device info
+    public void email() {
+        emailBase(false);
+    }
+    public void emailTheme() {
+        emailBase(true);
+    }
+    private void emailBase(boolean theme) {
         StringBuilder emailBuilder = new StringBuilder();
 
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + c.getResources().getString(R.string.email_id)));
@@ -39,6 +48,21 @@ public class BasicFunctions {
         emailBuilder.append("\nApp Version Name: ").append(appInfo.versionName);
         emailBuilder.append("\nApp Version Code: ").append(appInfo.versionCode);
 
+        if (theme) {
+            Intent cm = c.getPackageManager().getLaunchIntentForPackage("org.cyanogenmod.theme.chooser");
+            Intent cyngn = c.getPackageManager().getLaunchIntentForPackage("com.cyngn.theme.chooser");
+            Intent rro = c.getPackageManager().getLaunchIntentForPackage("com.lovejoy777.rroandlayersmanager");
+            if (cm != null) {
+                emailBuilder.append("\n\nCM theme chooser is installed.");
+            }
+            if (cyngn != null) {
+                emailBuilder.append("\n\nCyanogenOS theme chooser is installed.");
+            }
+            if (rro != null) {
+                emailBuilder.append("\n\nLayers theme engine is installed.");
+            }
+        }
+
         intent.putExtra(Intent.EXTRA_TEXT, emailBuilder.toString());
         c.startActivity(Intent.createChooser(intent, (c.getResources().getString(R.string.send_title))));
     }
@@ -48,6 +72,10 @@ public class BasicFunctions {
     }
     public void openPlay (String package_name) { //in case variant is not on the play store
         Intent rate = new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_URL + package_name));
+        c.startActivity(rate);
+    }
+    public void link (String link) {
+        Intent rate = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
         c.startActivity(rate);
     }
 
@@ -64,6 +92,10 @@ public class BasicFunctions {
                         MARKET_URL + package_name;
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
         c.startActivity(Intent.createChooser(sharingIntent, (c.getResources().getString(R.string.share_title))));
+    }
+
+    public void wip() {
+        Toast.makeText(c.getApplicationContext(), "WIP", Toast.LENGTH_SHORT).show();
     }
 
 

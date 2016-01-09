@@ -17,4 +17,9 @@
         android:orderInCategory="300"
         android:title="@string/sendemail"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/source"
+        android:orderInCategory="300"
+        android:title="@string/source"
+        app:showAsAction="never" />
 </menu>

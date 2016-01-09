@@ -3,4 +3,5 @@
     <string name="share">Share</string>
     <string name="rate_mg">Rate Material Glass</string>
     <string name="sendemail">Email</string>
+    <string name="source">View Source</string>
 </resources>
