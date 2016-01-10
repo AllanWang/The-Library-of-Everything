@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="loe_card_padding">20dip</dimen>
+    <dimen name="loe_card_title_size">25sp</dimen>
+    <dimen name="loe_card_desc_size">15sp</dimen>
+</resources>
