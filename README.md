@@ -23,3 +23,5 @@ dependencies {
 ```
 
 Where "xxx" represents the latest release tag
+
+Have a look at the features with this <a href="https://github.com/asdfasdfvful/The-Library-of-Everything/blob/master/sample/sample-release.apk?raw=true">sample app</a>
