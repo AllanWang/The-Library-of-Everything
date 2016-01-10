@@ -6,10 +6,6 @@ public class Card {
     String desc;
     int photoId;
 
-    public Card() {
-//        blank method
-    }
-
     public Card(String title, String desc, int photoId) {
         this.title = title;
         this.desc = desc;

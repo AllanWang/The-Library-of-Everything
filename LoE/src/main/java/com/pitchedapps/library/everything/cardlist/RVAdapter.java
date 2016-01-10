@@ -12,16 +12,16 @@ import com.pitchedapps.library.everything.R;
 
 import java.util.List;
 
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
+public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+    public static class CardViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;
         TextView cardTitle;
         TextView cardDesc;
         ImageView cardPhoto;
 
-        PersonViewHolder(View itemView) {
+        CardViewHolder(View itemView) {
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
             cardTitle = (TextView)itemView.findViewById(R.id.card_title);
@@ -30,10 +30,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         }
     }
 
-    List<Card> card;
+    List<Card> cards;
 
-    RVAdapter(List<Card> card){
-        this.card = card;
+    RVAdapter(List<Card> cards){
+        this.cards = cards;
     }
 
     @Override
@@ -42,21 +42,21 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     }
 
     @Override
-    public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
-        PersonViewHolder pvh = new PersonViewHolder(v);
-        return pvh;
+        CardViewHolder cvh = new CardViewHolder(v);
+        return cvh;
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        personViewHolder.cardTitle.setText(card.get(i).title);
-        personViewHolder.cardDesc.setText(card.get(i).desc);
-        personViewHolder.cardPhoto.setImageResource(card.get(i).photoId);
+    public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
+        cardViewHolder.cardTitle.setText(cards.get(i).title);
+        cardViewHolder.cardDesc.setText(cards.get(i).desc);
+        cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
     }
 
     @Override
     public int getItemCount() {
-        return card.size();
+        return cards.size();
     }
 }
