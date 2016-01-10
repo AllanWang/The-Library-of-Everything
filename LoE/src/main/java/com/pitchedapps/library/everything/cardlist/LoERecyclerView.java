@@ -30,9 +30,9 @@ public class LoERecyclerView {
         cards.add(new Card(title, desc, photoId, link));
     }
 
-//    public void addCard(String title, String desc, int photoId, String buttonText, String link) {
-//        cards.add(new Card (title, desc, photoId, buttonText, link));
-//    }
+    public void addCard(String title, String desc, int photoId, String link, String buttonText, String buttonLink) {
+        cards.add(new Card (title, desc, photoId, link, buttonText, buttonLink));
+    }
 
     public void finalize() {
         RVAdapter adapter = new RVAdapter(cards, c);

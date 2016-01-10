@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         TextView cardDesc;
         ImageView cardPhoto;
         RelativeLayout cardLayout;
-//        TextView cardButton;
+        TextView cardButton;
 
 
         CardViewHolder(View itemView, int i) {
@@ -38,11 +39,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cardDesc = (TextView)itemView.findViewById(R.id.card_desc);
             cardPhoto = (ImageView)itemView.findViewById(R.id.card_photo);
             cardLayout = (RelativeLayout)itemView.findViewById(R.id.card_layout);
-//            cardButton = (TextView)itemView.findViewById(R.id.card_button);
-//            Log.d("everything", "button is " + cards.get(i).button);
-//            if(!(cards.get(i).button)) {
-//                ((ViewManager)cardButton.getParent()).removeView(cardButton);
-//            }
+            cardButton = (TextView)itemView.findViewById(R.id.card_button);
+            Log.d("everything", "button is " + cards.get(i).buttonEnabled);
+            if(!(cards.get(i).buttonEnabled)) {
+                ((ViewManager)cardButton.getParent()).removeView(cardButton);
+            }
         }
     }
 
@@ -72,9 +73,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         cardViewHolder.cardDesc.setText(cards.get(i).desc);
         cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
         final String link = cards.get(i).link;
-//        if(cards.get(i).button) {
-//            cardViewHolder.cardButton.setText(cards.get(i).buttonText);
-//        }
+        if(cards.get(i).buttonEnabled) {
+            cardViewHolder.cardButton.setText(cards.get(i).buttonText);
+        }
         cardViewHolder.cardLayout.setOnClickListener(new View.OnClickListener() {
             final BasicFunctions basic = new BasicFunctions(c);
             @Override
