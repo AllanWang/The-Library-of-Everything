@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/loe_card_padding"
         android:clickable="true"
+        android:id="@+id/card_layout"
         android:background="@drawable/card_ripple"
         >
 

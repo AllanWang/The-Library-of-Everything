@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.pitchedapps.library.everything.BasicFunctions;
@@ -25,6 +26,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         TextView cardTitle;
         TextView cardDesc;
         ImageView cardPhoto;
+        RelativeLayout cardLayout;
 //        TextView cardButton;
 
 
@@ -35,21 +37,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cardTitle = (TextView)itemView.findViewById(R.id.card_title);
             cardDesc = (TextView)itemView.findViewById(R.id.card_desc);
             cardPhoto = (ImageView)itemView.findViewById(R.id.card_photo);
+            cardLayout = (RelativeLayout)itemView.findViewById(R.id.card_layout);
 //            cardButton = (TextView)itemView.findViewById(R.id.card_button);
 //            Log.d("everything", "button is " + cards.get(i).button);
 //            if(!(cards.get(i).button)) {
 //                ((ViewManager)cardButton.getParent()).removeView(cardButton);
 //            }
-            final BasicFunctions basic = new BasicFunctions(c);
-            final String link = cards.get(i).link;
-            Log.d("Everything", "link set");
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("EVerything", "pressed, opening link");
-                    basic.link(link);
-                }
-            });
         }
     }
 
@@ -74,12 +67,22 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
+//        final Item item = arrayList.get(i);
         cardViewHolder.cardTitle.setText(cards.get(i).title);
         cardViewHolder.cardDesc.setText(cards.get(i).desc);
         cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
+        final String link = cards.get(i).link;
 //        if(cards.get(i).button) {
 //            cardViewHolder.cardButton.setText(cards.get(i).buttonText);
 //        }
+        cardViewHolder.cardLayout.setOnClickListener(new View.OnClickListener() {
+            final BasicFunctions basic = new BasicFunctions(c);
+            @Override
+            public void onClick(View view) {
+                basic.link(link);
+            }
+
+        });
     }
 
     @Override

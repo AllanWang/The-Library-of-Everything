@@ -71,12 +71,11 @@ public class BasicFunctions {
         openPlay(c.getApplicationContext().getPackageName());
     }
     public void openPlay (String package_name) { //in case variant is not on the play store
-        Intent rate = new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_URL + package_name));
-        c.startActivity(rate);
+        c.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_URL + package_name)));
     }
-    public void link (String link) {
-        Intent rate = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-        c.startActivity(rate);
+    public void link (String url) {
+        c.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+
     }
 
     public void share() {
