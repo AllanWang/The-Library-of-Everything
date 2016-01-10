@@ -3,14 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:style="@style/LoE_Card"
+    style="@style/LoE_Card"
+    android:layout_marginLeft="@dimen/loe_card_margin_horizontal"
+    android:layout_marginRight="@dimen/loe_card_margin_horizontal"
+    android:layout_marginTop="@dimen/loe_card_margin_vertical"
+    android:layout_marginBottom="@dimen/loe_card_margin_vertical"
     android:id="@+id/cv"
-    android:padding="@dimen/loe_card_padding"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/loe_card_padding"
+        android:clickable="true"
+        android:background="@drawable/card_ripple"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -39,6 +46,17 @@
             android:layout_below="@id/card_title"
             android:textSize="@dimen/loe_card_desc_size"
             android:textColor="@color/loe_card_desc_color"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/card_button"
+            android:layout_toRightOf="@id/card_desc"
+            android:layout_below="@id/card_title"
+            android:textSize="@dimen/loe_card_desc_size"
+            android:textColor="@color/loe_card_desc_color"
+            android:background="@drawable/card_ripple"
             />
 
     </RelativeLayout>
