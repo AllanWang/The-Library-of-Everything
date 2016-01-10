@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 basic.openPlay("com.pitchedapps.material.glass.free");
                 break;
             case R.id.sendemail:
-                basic.email();
+                basic.emailTheme();
                 break;
             case R.id.source:
                 basic.link("https://github.com/asdfasdfvful/The-Library-of-Everything");

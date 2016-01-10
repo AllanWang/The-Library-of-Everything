@@ -12,9 +12,10 @@ android {
         applicationId "com.pitchedapps.sample.everything"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "0.3"
     }
+
     buildTypes {
         release {
             minifyEnabled false
