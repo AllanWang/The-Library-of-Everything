@@ -26,16 +26,16 @@ public class LoERecyclerView {
         rv.setHasFixedSize(true);
     }
 
-    public void addCard(String title, String desc, int photoId) {
-        cards.add(new Card(title, desc, photoId));
+    public void addCard(String title, String desc, int photoId, String link) {
+        cards.add(new Card(title, desc, photoId, link));
     }
 
-    public void addCard(String title, String desc, int photoId, String buttonText, String link) {
-        cards.add(new Card (title, desc, photoId, buttonText, link));
-    }
+//    public void addCard(String title, String desc, int photoId, String buttonText, String link) {
+//        cards.add(new Card (title, desc, photoId, buttonText, link));
+//    }
 
     public void finalize() {
-        RVAdapter adapter = new RVAdapter(cards);
+        RVAdapter adapter = new RVAdapter(cards, c);
         rv.setAdapter(adapter);
     }
 }

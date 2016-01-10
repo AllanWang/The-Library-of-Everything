@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
-        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma);
-        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma, "open", "google.ca");
+        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma, "google.ca");
+//        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma, "open", "google.ca");
         lrv.finalize();
     }
 
