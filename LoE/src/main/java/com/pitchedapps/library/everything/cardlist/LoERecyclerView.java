@@ -30,6 +30,10 @@ public class LoERecyclerView {
         cards.add(new Card(title, desc, photoId, link));
     }
 
+    public void addCard(String title, String desc, String link) {
+        cards.add(new Card(title, desc, link));
+    }
+
     public void addCard(String title, String desc, int photoId, String link, String buttonText, String buttonLink) {
         cards.add(new Card (title, desc, photoId, link, buttonText, buttonLink));
     }

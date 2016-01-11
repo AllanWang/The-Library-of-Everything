@@ -7,5 +7,4 @@
     <dimen name="loe_card_margin_vertical">12.0dip</dimen>
     <dimen name="loe_card_button_size">18sp</dimen>
     <dimen name="loe_card_image_size">60dip</dimen>
-
 </resources>

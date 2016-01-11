@@ -22,18 +22,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //noinspection ConstantConditions
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        rv=(RecyclerView)findViewById(R.id.rv);
-//
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-//        rv.setLayoutManager(llm);
-//        rv.setHasFixedSize(true);
-
-//        initializeData();
-//        initializeAdapter();
 
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
+        lrv.addCard("Emma Wilson", "23 years old", "https://www.google.ca");
         lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://www.google.ca");
         lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://github.com/asdfasdfvful/Material-Glass/", "open", "https://github.com/asdfasdfvful/Material-Glass/tree/master/Material-Glass-Test");
         lrv.finalize();

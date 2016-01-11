@@ -65,12 +65,16 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
     public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
         cardViewHolder.cardTitle.setText(cards.get(i).title);
         cardViewHolder.cardDesc.setText(cards.get(i).desc);
-        cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
+        if(cards.get(i).photoEnabled) {
+            cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
+        } else {
+            ((ViewManager)cardViewHolder.cardPhoto.getParent()).removeView(cardViewHolder.cardPhoto);
+        }
         final String link = cards.get(i).link;
         final BasicFunctions basic = new BasicFunctions(c);
         if(cards.get(i).buttonEnabled) {
             final String buttonLink = cards.get(i).buttonLink;
-
+            cardViewHolder.cardLayout.setPadding(cardViewHolder.cardLayout.getPaddingLeft(), cardViewHolder.cardLayout.getPaddingTop(), cardViewHolder.cardLayout.getPaddingRight(), 0); //removes bottom padding as it will be done in buttons
             cardViewHolder.cardButton.setText(cards.get(i).buttonText);
             cardViewHolder.cardButton.setOnClickListener(new View.OnClickListener() {
                 @Override
