@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //noinspection ConstantConditions
 
+        //example of how to implement the cardview and how to add a new card with only one line
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
         lrv.addCard("Emma Wilson", "23 years old", "https://www.google.ca");
@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         super.onOptionsItemSelected(item);
-        BasicFunctions basic = new BasicFunctions(this);
+        BasicFunctions basic = new BasicFunctions(this); //initialize basic functions
+        //example of how to implement the very basic functions
         switch (item.getItemId()) {
             case R.id.share:
                 basic.share();
@@ -58,17 +59,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-
-//    public void initializeData(){
-//        persons = new ArrayList<>();
-//        persons.add(new Person("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma));
-//        persons.add(new Person("Lavery Maiss", "25 years old", com.pitchedapps.library.everything.R.drawable.lavery));
-//        persons.add(new Person("Lillie Watts", "35 years old", com.pitchedapps.library.everything.R.drawable.lillie));
-//    }
-
-//    public void initializeAdapter(){
-//        RVAdapter adapter = new RVAdapter(persons);
-//        rv.setAdapter(adapter);
-//    }
 
 }
