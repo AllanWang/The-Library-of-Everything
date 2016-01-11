@@ -20,13 +20,16 @@
         android:background="@drawable/card_ripple"
         >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/loe_card_image_size"
+            android:layout_height="@dimen/loe_card_image_size"
             android:id="@+id/card_photo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="16dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#55ffffff"
             />
 
         <TextView
@@ -53,11 +56,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/card_button"
-            android:layout_toRightOf="@id/card_desc"
-            android:layout_below="@id/card_title"
-            android:textSize="@dimen/loe_card_desc_size"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="@dimen/loe_card_button_size"
             android:textColor="@color/loe_card_desc_color"
+            android:padding="@dimen/loe_card_padding"
             android:background="@drawable/card_ripple"
+            android:clickable="true"
             />
 
     </RelativeLayout>

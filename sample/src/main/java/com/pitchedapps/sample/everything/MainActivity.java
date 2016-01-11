@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
-        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma, "https://www.google.ca");
-        lrv.addCard("Emma Wilson", "23 years old", com.pitchedapps.library.everything.R.drawable.emma, "https://www.google.ca", "open", "https://www.facebook.com");
+        lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://www.google.ca");
+        lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://github.com/asdfasdfvful/Material-Glass/", "open", "https://github.com/asdfasdfvful/Material-Glass/tree/master/Material-Glass-Test");
         lrv.finalize();
     }
 

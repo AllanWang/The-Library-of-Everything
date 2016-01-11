@@ -30,8 +30,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         RelativeLayout cardLayout;
         TextView cardButton;
 
-
-        CardViewHolder(View itemView, int i) {
+        CardViewHolder(View itemView) {
             super(itemView);
             view = itemView;
             cv = (CardView)itemView.findViewById(R.id.cv);
@@ -40,10 +39,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cardPhoto = (ImageView)itemView.findViewById(R.id.card_photo);
             cardLayout = (RelativeLayout)itemView.findViewById(R.id.card_layout);
             cardButton = (TextView)itemView.findViewById(R.id.card_button);
-            Log.d("everything", "button is " + cards.get(i).buttonEnabled);
-            if(!(cards.get(i).buttonEnabled)) {
-                ((ViewManager)cardButton.getParent()).removeView(cardButton);
-            }
         }
     }
 
@@ -62,22 +57,33 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card, viewGroup, false);
-        CardViewHolder cvh = new CardViewHolder(v, i);
+        CardViewHolder cvh = new CardViewHolder(v);
         return cvh;
     }
 
     @Override
     public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
-//        final Item item = arrayList.get(i);
         cardViewHolder.cardTitle.setText(cards.get(i).title);
         cardViewHolder.cardDesc.setText(cards.get(i).desc);
         cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
         final String link = cards.get(i).link;
+        final BasicFunctions basic = new BasicFunctions(c);
         if(cards.get(i).buttonEnabled) {
+            final String buttonLink = cards.get(i).buttonLink;
+
             cardViewHolder.cardButton.setText(cards.get(i).buttonText);
+            cardViewHolder.cardButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    basic.link(buttonLink);
+                }
+
+            });
+        } else {
+            ((ViewManager)cardViewHolder.cardButton.getParent()).removeView(cardViewHolder.cardButton);
+
         }
         cardViewHolder.cardLayout.setOnClickListener(new View.OnClickListener() {
-            final BasicFunctions basic = new BasicFunctions(c);
             @Override
             public void onClick(View view) {
                 basic.link(link);
