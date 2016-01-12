@@ -2,9 +2,15 @@
     <string name="app_name">The Library of Everything</string>
     <string name="dev">Pitched Apps</string>
 
+    <!--pitched apps stuff-->
+    <string name="pa_gplus">https://plus.google.com/+AllanWPitchedApps</string>
+    <string name="pa_xda">http://forum.xda-developers.com/member.php?u=5230774</string>
+    <string name="pa_play">https://play.google.com/store/apps/developer?id=Pitched+Apps</string>
+    <string name="pa_email">pitchedapps@gmail.com</string>
+
     <!--contact info-->
     <string name="send_title">Send via</string>
-    <string name="email_id">pitchedapps@gmail.com</string>
+    <string name="email_id">@string/pa_email</string>
     <string name="email_subject">Change the subject!</string>
 
     <!-- Sharing theme -->
