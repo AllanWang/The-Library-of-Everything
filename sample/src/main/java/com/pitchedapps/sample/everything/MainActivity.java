@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
         lrv.addLibCard("This is a lib card", "I'm clickable and I have a ripple background", "author here", GIT_URL);
-        lrv.addBasicCard("This is a basic card", "I have no photo and I'm not clickable, but I have two clickable buttons", "button 1", GIT_URL, "button 2" , GIT_URL);
-        lrv.addPhotoCard("This is a photo card", "<-- Here is a photo; I also have all the features of a basic card", R.drawable.pitchedapps, "button 1", GIT_URL, "button 2" , GIT_URL);
-        lrv.addLibCard("The Library of Everything", "Bits and pieces to make adding small features easier.", "asdfasdfvful (me :) )", "https://github.com/asdfasdfvful/The-Library-of-Everything");
+        lrv.addBasicCard("This is a basic card", "I have no photo and I'm not clickable, but I have two clickable buttons", "button 1", GIT_URL, "button 2", GIT_URL);
+        lrv.addPhotoCard("This is a photo card", "<-- Here is a photo; I also have all the features of a basic card", R.drawable.pitchedapps, "button 1", GIT_URL, "button 2", GIT_URL);
+        lrv.addLibCard("The Library of Everything hgfjhgfjhgfjhgfjhgfjhgfjhgfjhgfjgfjgfjgfhg", "Bits and pieces to make adding small features easier.", "asdfasdfvful (me :) )", "https://github.com/asdfasdfvful/The-Library-of-Everything");
+        lrv.cardTheme(0xFFFFFFFF, 0xFFFF0000, 0xFFFF00FF, 0xFF00FFFF, "sans-serif-light");
         lrv.finalize();
     }
 

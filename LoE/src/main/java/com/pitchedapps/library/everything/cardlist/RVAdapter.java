@@ -1,7 +1,9 @@
 package com.pitchedapps.library.everything.cardlist;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.ActionBarOverlayLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -50,9 +52,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
     }
 
     List<Card> cards;
+    CardTheme cardTheme;
 
-    RVAdapter(List<Card> cards, Context c){
+    RVAdapter(List<Card> cards, Context c, CardTheme cardTheme){
         this.cards = cards;
+        this.cardTheme = cardTheme;
         this.c = c;
     }
 
@@ -104,6 +108,16 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
         }
         if(cards.get(i).authorEnabled) {
+            RelativeLayout.LayoutParams titleParams = (RelativeLayout.LayoutParams)cardViewHolder.cardTitle.getLayoutParams();
+            titleParams.width = cardViewHolder.cardTitle.getWidth()/2;
+            cardViewHolder.cardTitle.setLayoutParams(titleParams);
+
+//            cardViewHolder.cardTitle.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//            ViewGroup.LayoutParams authorParams = cardViewHolder.cardAuthor.getLayoutParams();
+//            authorParams.width = cardViewHolder.cardAuthor.getWidth()/3;
+//            cardViewHolder.cardAuthor.setLayoutParams(authorParams);
+
             cardViewHolder.cardAuthor.setText(cards.get(i).author);
             cardViewHolder.cardLayout.setBackground(ContextCompat.getDrawable(c, R.drawable.card_ripple));
             final String link = cards.get(i).link;
@@ -117,10 +131,27 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         } else {
             ((ViewManager)cardViewHolder.cardAuthor.getParent()).removeView(cardViewHolder.cardAuthor);
         }
+        if(cardTheme.themeCardEnabled) {
+            cardViewHolder.cardTitle.setTextColor(cardTheme.themeCardTitle);
+            cardViewHolder.cardTitle.setTypeface(Typeface.create(cardTheme.themeCardCustomFont, Typeface.NORMAL));
+            cardViewHolder.cardDesc.setTextColor(cardTheme.themeCardDesc);
+            cardViewHolder.cardDesc.setTypeface(Typeface.create(cardTheme.themeCardCustomFont, Typeface.NORMAL));
+            if(cards.get(i).authorEnabled) {
+                cardViewHolder.cardAuthor.setTextColor(cardTheme.themeCardAuthor);
+                cardViewHolder.cardAuthor.setTypeface(Typeface.create(cardTheme.themeCardCustomFont, Typeface.NORMAL));
+            }
+            if(cards.get(i).buttonEnabled) {
+                cardViewHolder.card1Button.setTextColor(cardTheme.themeCardButton);
+                cardViewHolder.card1Button.setTypeface(Typeface.create(cardTheme.themeCardCustomFont, Typeface.NORMAL));
+                cardViewHolder.card2Button.setTextColor(cardTheme.themeCardButton);
+                cardViewHolder.card2Button.setTypeface(Typeface.create(cardTheme.themeCardCustomFont, Typeface.NORMAL));
+            }
+        }
     }
 
     @Override
     public int getItemCount() {
         return cards.size();
     }
+
 }

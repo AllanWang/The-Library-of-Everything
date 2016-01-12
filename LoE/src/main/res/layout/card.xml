@@ -33,27 +33,25 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/card_photo"
             android:id="@+id/top_layout">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/card_title"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:paddingBottom="@dimen/loe_card_small_padding"
+                android:gravity="left"
                 android:textSize="@dimen/loe_card_title_size"
                 android:textColor="@color/loe_card_title_color"/>
 
-            <View
-                android:layout_width="20dip"
-                android:layout_height="match_parent"/>
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/card_author"
-                android:layout_toRightOf="@id/card_title"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
+                android:gravity="right"
                 android:textSize="@dimen/loe_card_desc_size"
                 android:textColor="@color/loe_card_desc_color"
                 />

@@ -12,6 +12,7 @@ public class LoERecyclerView {
 
     private Context c;
     private List<Card> cards;
+    private CardTheme cardTheme;
     private RecyclerView rv;
 
     public LoERecyclerView(Context c) {
@@ -20,6 +21,7 @@ public class LoERecyclerView {
 
     public void initialize(View v) {
         cards = new ArrayList<>();
+        cardTheme = new CardTheme();
         rv=(RecyclerView)v;
         LinearLayoutManager llm = new LinearLayoutManager(c);
         rv.setLayoutManager(llm);
@@ -46,8 +48,13 @@ public class LoERecyclerView {
         cards.add(new Card(title, desc, button1Text, button1Link, button2Text, button2Link));
     }
 
+    public void cardTheme(int title, int desc, int author, int button, String font) {
+        cardTheme = new CardTheme(title, desc, author, button, font);
+    }
+
     public void finalize() {
-        RVAdapter adapter = new RVAdapter(cards, c);
+        RVAdapter adapter = new RVAdapter(cards, c, cardTheme);
         rv.setAdapter(adapter);
     }
+
 }
