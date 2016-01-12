@@ -108,13 +108,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
         }
         if(cards.get(i).authorEnabled) {
-            RelativeLayout.LayoutParams titleParams = (RelativeLayout.LayoutParams)cardViewHolder.cardTitle.getLayoutParams();
-            titleParams.width = cardViewHolder.cardTitle.getWidth()/2;
-            cardViewHolder.cardTitle.setLayoutParams(titleParams);
+//            RelativeLayout.LayoutParams titleParams = (RelativeLayout.LayoutParams)cardViewHolder.cardTitle.getLayoutParams();
+//            titleParams.width = cardViewHolder.cardTitle.getWidth()/2;
+//            cardViewHolder.cardTitle.setLayoutParams(titleParams);
 
-//            cardViewHolder.cardTitle.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 //
-//            ViewGroup.LayoutParams authorParams = cardViewHolder.cardAuthor.getLayoutParams();
+//            RelativeLayout.LayoutParams authorParams = (RelativeLayout.LayoutParams)cardViewHolder.cardAuthor.getLayoutParams();
 //            authorParams.width = cardViewHolder.cardAuthor.getWidth()/3;
 //            cardViewHolder.cardAuthor.setLayoutParams(authorParams);
 
