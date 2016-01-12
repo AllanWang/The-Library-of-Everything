@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/loe_card_padding"
-        android:id="@+id/card_layout"
-        >
+        android:id="@+id/card_layout">
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -29,32 +28,43 @@
             app:civ_border_width="@dimen/loe_civ_border_width"
             app:civ_border_color="@color/loe_civ_border_color"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/card_title"
             android:layout_toRightOf="@id/card_photo"
-            android:layout_alignParentTop="true"
-            android:paddingBottom="@dimen/loe_card_small_padding"
-            android:textSize="@dimen/loe_card_title_size"
-            android:textColor="@color/loe_card_title_color"/>
+            android:id="@+id/top_layout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/card_title"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="@dimen/loe_card_small_padding"
+                android:textSize="@dimen/loe_card_title_size"
+                android:textColor="@color/loe_card_title_color"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/card_author"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:textSize="@dimen/loe_card_desc_size"
-            android:textColor="@color/loe_card_desc_color"
-            />
+            <View
+                android:layout_width="20dip"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/card_author"
+                android:layout_toRightOf="@id/card_title"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:textSize="@dimen/loe_card_desc_size"
+                android:textColor="@color/loe_card_desc_color"
+                />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/card_desc"
             android:layout_toRightOf="@id/card_photo"
-            android:layout_below="@id/card_title"
+            android:layout_below="@id/top_layout"
             android:textSize="@dimen/loe_card_desc_size"
             android:textColor="@color/loe_card_desc_color"/>
 

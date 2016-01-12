@@ -3,8 +3,8 @@
     <!--card-->
     <color name="loe_card_title_color">#fff</color>
     <color name="loe_card_desc_color">#bbffffff</color>
-    <color name="LoE_card_ripple_color">#60ffffff</color>
+    <color name="loe_card_ripple_color">#60ffffff</color>
     <color name="loe_card_bg">#60000000</color>
-    <color name="LoE_card_pressed_color">#60333333</color>
+    <color name="loe_card_pressed_color">#60333333</color>
     <color name="loe_civ_border_color">#55ffffff</color>
 </resources>
