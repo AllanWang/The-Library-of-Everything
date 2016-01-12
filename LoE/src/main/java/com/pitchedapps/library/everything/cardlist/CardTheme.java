@@ -30,6 +30,24 @@ public class CardTheme {
         this.themeCardEnabled = true;
     }
 
+    public CardTheme(int title, int desc, int author, String font) {
+        this.themeCardTitle = title;
+        this.themeCardDesc = desc;
+        this.themeCardAuthor = author;
+        this.themeCardButton = author;
+        this.themeCardCustomFont = font;
+        this.themeCardEnabled = true;
+    }
+
+    public CardTheme(int title, int desc, int author) {
+        this.themeCardTitle = title;
+        this.themeCardDesc = desc;
+        this.themeCardAuthor = author;
+        this.themeCardButton = author;
+        this.themeCardCustomFont = "sans-serif";
+        this.themeCardEnabled = true;
+    }
+
     public CardTheme(int textPrimary, int textSecondary, String font) {
         this.themeCardTitle = textPrimary;
         this.themeCardDesc = textSecondary;
