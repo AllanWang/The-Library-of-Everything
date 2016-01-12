@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         TextView cardAuthor;
         ImageView cardPhoto;
         RelativeLayout cardLayout;
+        LinearLayout cardTopLayout;
         RelativeLayout buttonLayout;
         TextView card1Button;
         TextView card2Button;
@@ -45,6 +47,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cardAuthor = (TextView)itemView.findViewById(R.id.card_author);
             cardPhoto = (ImageView)itemView.findViewById(R.id.card_photo);
             cardLayout = (RelativeLayout)itemView.findViewById(R.id.card_layout);
+            cardTopLayout = (LinearLayout)itemView.findViewById(R.id.top_layout);
             buttonLayout = (RelativeLayout)itemView.findViewById(R.id.button_layout);
             card1Button = (TextView)itemView.findViewById(R.id.card_button_1);
             card2Button = (TextView)itemView.findViewById(R.id.card_button_2);
@@ -79,7 +82,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         if(cards.get(i).photoEnabled) {
             cardViewHolder.cardPhoto.setImageResource(cards.get(i).photoId);
         } else {
-            ((ViewManager)cardViewHolder.cardPhoto.getParent()).removeView(cardViewHolder.cardPhoto);
+            cardViewHolder.cardLayout.removeView(cardViewHolder.cardPhoto);
         }
         final BasicFunctions basic = new BasicFunctions(c);
         if(cards.get(i).buttonEnabled) {
@@ -104,19 +107,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
             });
         } else {
-            ((ViewManager)cardViewHolder.buttonLayout.getParent()).removeView(cardViewHolder.buttonLayout);
+            cardViewHolder.cardLayout.removeView(cardViewHolder.buttonLayout);
 
         }
         if(cards.get(i).authorEnabled) {
-//            RelativeLayout.LayoutParams titleParams = (RelativeLayout.LayoutParams)cardViewHolder.cardTitle.getLayoutParams();
-//            titleParams.width = cardViewHolder.cardTitle.getWidth()/2;
-//            cardViewHolder.cardTitle.setLayoutParams(titleParams);
-
-//
-//            RelativeLayout.LayoutParams authorParams = (RelativeLayout.LayoutParams)cardViewHolder.cardAuthor.getLayoutParams();
-//            authorParams.width = cardViewHolder.cardAuthor.getWidth()/3;
-//            cardViewHolder.cardAuthor.setLayoutParams(authorParams);
-
             cardViewHolder.cardAuthor.setText(cards.get(i).author);
             cardViewHolder.cardLayout.setBackground(ContextCompat.getDrawable(c, R.drawable.card_ripple));
             final String link = cards.get(i).link;
@@ -128,7 +122,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
             });
         } else {
-            ((ViewManager)cardViewHolder.cardAuthor.getParent()).removeView(cardViewHolder.cardAuthor);
+            cardViewHolder.cardTopLayout.removeView(cardViewHolder.cardAuthor);
         }
         if(cardTheme.themeCardEnabled) {
             cardViewHolder.cardTitle.setTextColor(cardTheme.themeCardTitle);
