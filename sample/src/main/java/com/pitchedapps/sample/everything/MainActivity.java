@@ -14,6 +14,7 @@ import com.pitchedapps.library.everything.cardlist.LoERecyclerView;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private static final String GIT_URL = "https://github.com/asdfasdfvful/The-Library-of-Everything";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         //example of how to implement the cardview and how to add a new card with only one line
         LoERecyclerView lrv = new LoERecyclerView(this);
         lrv.initialize(findViewById(R.id.rv));
-        lrv.addCard("Emma Wilson", "23 years old", "https://www.google.ca");
-        lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://www.google.ca");
-        lrv.addCard("Emma Wilson", "23 years old", R.drawable.emma, "https://github.com/asdfasdfvful/Material-Glass/", "open", "https://github.com/asdfasdfvful/Material-Glass/tree/master/Material-Glass-Test");
+        lrv.addLibCard("This is a lib card", "I'm clickable and I have a ripple background", "author here", GIT_URL);
+        lrv.addBasicCard("This is a basic card", "I have no photo and I'm not clickable, but I have two clickable buttons", "button 1", GIT_URL, "button 2" , GIT_URL);
+        lrv.addPhotoCard("This is a photo card", "<-- Here is a photo; I also have all the features of a basic card", R.drawable.pitchedapps, "button 1", GIT_URL, "button 2" , GIT_URL);
         lrv.finalize();
     }
 

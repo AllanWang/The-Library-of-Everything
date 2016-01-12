@@ -26,16 +26,24 @@ public class LoERecyclerView {
         rv.setHasFixedSize(true);
     }
 
-    public void addCard(String title, String desc, int photoId, String link) {
-        cards.add(new Card(title, desc, photoId, link));
+//    public void addPhotoCard(String title, String desc, int photoId, String button1Text, String button1Link) {
+//        cards.add(new Card(title, desc, photoId, button1Text, button1Link));
+//    }
+
+    public void addPhotoCard(String title, String desc, int photoId, String button1Text, String button1Link, String button2Text, String button2Link) {
+        cards.add(new Card(title, desc, photoId, button1Text, button1Link, button2Text, button2Link));
     }
 
-    public void addCard(String title, String desc, String link) {
-        cards.add(new Card(title, desc, link));
+    public void addLibCard(String title, String desc, String author, String link) {
+        cards.add(new Card(title, desc, author, link));
     }
 
-    public void addCard(String title, String desc, int photoId, String link, String buttonText, String buttonLink) {
-        cards.add(new Card (title, desc, photoId, link, buttonText, buttonLink));
+//    public void addBasicCard(String title, String desc, String button1Text, String button1Link) {
+//        cards.add(new Card(title, desc, button1Text, button1Link));
+//    }
+
+    public void addBasicCard(String title, String desc, String button1Text, String button1Link, String button2Text, String button2Link) {
+        cards.add(new Card(title, desc, button1Text, button1Link, button2Text, button2Link));
     }
 
     public void finalize() {

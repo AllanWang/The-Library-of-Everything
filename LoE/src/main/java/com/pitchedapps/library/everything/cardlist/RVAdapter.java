@@ -1,6 +1,7 @@
 package com.pitchedapps.library.everything.cardlist;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,9 +27,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         CardView cv;
         TextView cardTitle;
         TextView cardDesc;
+        TextView cardAuthor;
         ImageView cardPhoto;
         RelativeLayout cardLayout;
-        TextView cardButton;
+        RelativeLayout buttonLayout;
+        TextView card1Button;
+        TextView card2Button;
 
         CardViewHolder(View itemView) {
             super(itemView);
@@ -36,9 +40,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
             cv = (CardView)itemView.findViewById(R.id.cv);
             cardTitle = (TextView)itemView.findViewById(R.id.card_title);
             cardDesc = (TextView)itemView.findViewById(R.id.card_desc);
+            cardAuthor = (TextView)itemView.findViewById(R.id.card_author);
             cardPhoto = (ImageView)itemView.findViewById(R.id.card_photo);
             cardLayout = (RelativeLayout)itemView.findViewById(R.id.card_layout);
-            cardButton = (TextView)itemView.findViewById(R.id.card_button);
+            buttonLayout = (RelativeLayout)itemView.findViewById(R.id.button_layout);
+            card1Button = (TextView)itemView.findViewById(R.id.card_button_1);
+            card2Button = (TextView)itemView.findViewById(R.id.card_button_2);
         }
     }
 
@@ -70,30 +77,46 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
         } else {
             ((ViewManager)cardViewHolder.cardPhoto.getParent()).removeView(cardViewHolder.cardPhoto);
         }
-        final String link = cards.get(i).link;
         final BasicFunctions basic = new BasicFunctions(c);
         if(cards.get(i).buttonEnabled) {
-            final String buttonLink = cards.get(i).buttonLink;
-            cardViewHolder.cardLayout.setPadding(cardViewHolder.cardLayout.getPaddingLeft(), cardViewHolder.cardLayout.getPaddingTop(), cardViewHolder.cardLayout.getPaddingRight(), 0); //removes bottom padding as it will be done in buttons
-            cardViewHolder.cardButton.setText(cards.get(i).buttonText);
-            cardViewHolder.cardButton.setOnClickListener(new View.OnClickListener() {
+            final String button1Link = cards.get(i).button1Link;
+            final String button2Link = cards.get(i).button2Link;
+            cardViewHolder.cardDesc.setPadding(0, 0, 0, cardViewHolder.cardLayout.getPaddingBottom()/3); //changes bottom padding as it will be done in buttons
+            cardViewHolder.cardLayout.setPadding(cardViewHolder.cardLayout.getPaddingLeft(), cardViewHolder.cardLayout.getPaddingTop(), cardViewHolder.cardLayout.getPaddingRight()/3, cardViewHolder.cardLayout.getPaddingBottom()/3); //changes bottom padding as it will be done in buttons
+            cardViewHolder.card1Button.setText(cards.get(i).button1Text);
+            cardViewHolder.card1Button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    basic.link(buttonLink);
+                    basic.link(button1Link);
+                }
+
+            });
+            cardViewHolder.card2Button.setText(cards.get(i).button2Text);
+            cardViewHolder.card2Button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    basic.link(button2Link);
                 }
 
             });
         } else {
-            ((ViewManager)cardViewHolder.cardButton.getParent()).removeView(cardViewHolder.cardButton);
+            ((ViewManager)cardViewHolder.buttonLayout.getParent()).removeView(cardViewHolder.buttonLayout);
 
         }
-        cardViewHolder.cardLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                basic.link(link);
-            }
+        if(cards.get(i).authorEnabled) {
+            cardViewHolder.cardAuthor.setText(cards.get(i).author);
+            cardViewHolder.cardLayout.setBackground(ContextCompat.getDrawable(c, R.drawable.card_ripple));
+            final String link = cards.get(i).link;
+            cardViewHolder.cardLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    basic.link(link);
+                }
 
-        });
+            });
+        } else {
+            ((ViewManager)cardViewHolder.cardAuthor.getParent()).removeView(cardViewHolder.cardAuthor);
+        }
     }
 
     @Override
